@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Request Submited</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/song.css')}}">
+  </head>
+  <body>
+    <div id="main-content" class="container-fluid">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" style="font-size:20px;" href="/">RISHI GARG</a>
+        </nav>
+        </div>
+    </div>
+    <div class="container">
+      <p id="song"></p>
+    </div>
+    <script type="text/javascript">
+      function randomSpan(text){
+        const txtAr = text.split("")
+        var list = []
+
+        for (i=0;i<txtAr.length;i++){
+          list.push(i)
+          document.getElementById("song").innerHTML+= "<span id="+i+">"+txtAr[i]+"</span>";
+        }
+        var currentIndex = list.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          // And swap it with the current element.
+          temporaryValue = list[currentIndex];
+          list[currentIndex] = list[randomIndex];
+          list[randomIndex] = temporaryValue;
+        }
+
+        return list;
+      }
+      function someFu(text,number){
+        list = randomSpan(text);
+        var i = 0;
+        function typeWriter() {
+          if (i < list.length) {
+            document.getElementById(list[i]).style.opacity="1";
+            i++;
+            setTimeout(typeWriter, 300);
+          }
+        }
+        typeWriter();
+      }
+
+      someFu("{{song}}",0);
+    </script>
+  </body>
+</html>

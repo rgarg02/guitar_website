@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="[en]" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Request a song</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/request.css') }}">
+  </head>
+  <body>
+    <div id="main-content" class="container-fluid">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" style="font-size:20px;" href="/">RISHI GARG</a>
+        </nav>
+        </div>
+    </div>
+    <div id="title"class="container">
+      <p id="request_title"></p>
+    </div>
+    <div class="container">
+      <form action="{{url_for('submit_form')}}" method="post">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" name="email" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="song_request">Song</label>
+          <input type="text" class="form-control" name="song_request" placeholder="Song Name">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-light">Submit</button>
+        </div>
+      </form>
+    </div>
+    <script type="text/javascript">
+      function randomSpan(text){
+        const txtAr = text.split("")
+        var list = []
+
+        for (i=0;i<txtAr.length;i++){
+          list.push(i)
+          document.getElementById("request_title").innerHTML+= "<span id="+i+">"+txtAr[i]+"</span>";
+        }
+        var currentIndex = list.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          // And swap it with the current element.
+          temporaryValue = list[currentIndex];
+          list[currentIndex] = list[randomIndex];
+          list[randomIndex] = temporaryValue;
+        }
+
+        return list;
+      }
+      function someFu(text){
+        list = randomSpan(text);
+        var i = 0;
+        function typeWriter() {
+          if (i < list.length) {
+            document.getElementById(list[i]).style.opacity="1";
+            i++;
+            setTimeout(typeWriter, 200);
+          }
+        }
+        typeWriter();
+      }
+
+      someFu( "Song Request");
+    </script>
+  </body>
+</html>

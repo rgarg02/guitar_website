@@ -1,0 +1,40 @@
+
+body{
+  background-image: url(photos/background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+#middle{
+  background-color: #2F2F31;
+  opacity: 0.9;
+  margin: auto;
+  height: 600px;
+  width: 900px;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-brand{
+    font-size: 40px !important;
+    color: white !important;
+}
+#name_rishi{
+  position: flex;
+  font-size: 90px;
+  color: white;
+  letter-spacing: 15px;
+}
+#name_rishi span{
+  opacity: 0;
+}
+.custom-nav{
+  position: absolute;
+  bottom: 20%;
+}
+.custom-nav a{
+  margin: 30px;
+  color: white;
+  font-size: 20px;
+}
