@@ -14,7 +14,7 @@ app = Flask(__name__)
 # Session(app)
 
 # Set up database
-engine = create_engine("postgresql://rishigarg:iamafreak123@rishigarg-db-web.ci4m0utla2zy.ap-south-1.rds.amazonaws.com:5432/guitarsongs")
+engine = create_engine("postgres://tkshbzeektlwhv:f209d2aefdc18f0fe5f63f887d1f81699aa11072db1f0d325cee71a31a7ecb36@ec2-18-210-51-239.compute-1.amazonaws.com:5432/d5h8srknfc94e4")
 db = scoped_session(sessionmaker(bind=engine))
 
 
